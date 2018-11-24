@@ -1,0 +1,19 @@
+
+// FONTS
+@font-face {
+    font-family: 'ProductSans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/ProductSans.ttf');
+}
+
+$main-font: 'ProductSans';
+$font-size: 16px;
+$line-height: 1.7;
+$font-wheight: 400;
+
+// PALETTE
+$body-bg: whitesmoke;
+$accent: #7ed56f;
+$primary: #55c57a;
+$secondary: #28b485;

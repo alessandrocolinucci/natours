@@ -1,4 +1,4 @@
-const browserSync = require('browser-sync'); // To live reload application
+const browserSync = require('browser-sync');  // To live reload application
 const gulp = require('gulp'); // To use gulp
 const rename = require('gulp-rename');  // To rename minified files
 const minifyimg = require('gulp-image'); // To minify images
@@ -17,22 +17,15 @@ gulp.task('serve', () => {
     gulp.watch(['src/*.html']).on('change', browserSync.reload);
 })
 
-
-// Copy Favicon
-gulp.task('copyfavicon', () => {
-    return gulp.src('src/*.ico')
-               .pipe(gulp.dest('dist'));
-});
-
 // Copy All HTML files
 gulp.task('copyhtml', () => {
     return gulp.src('src/*.html')
                .pipe(gulp.dest('dist'));
 });
 
-// Copy all fonts - requires to be .woff2
+// Copy all fonts
 gulp.task('copyfonts', () => {
-    return gulp.src('src/fonts/*.woff2')
+    return gulp.src('src/fonts/*')
                .pipe(gulp.dest('dist/fonts'));
 });
 

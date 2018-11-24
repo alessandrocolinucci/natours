@@ -1,29 +1,134 @@
-$body-bg: lightgrey;
-$main-font: 'Arial';
-
-$primary: #3F69AA;
-$secondary: #fff;
-// Others variables ...
-
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/Montserrat.woff2') format('woff2');
-}
+@import './variables.scss';
 
 * {
-    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: $body-bg;
-    margin: 0;
+    font-family: $main-font, sans-serif;
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-wheight;
     height: 100%;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-h1 {
-    text-align: center;
-    color: black;
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, $accent, $secondary), url('../images/hero.jpg');
+    background-position: top;
+    background-blend-mode: multiply;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+    .logo-box {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+
+        .logo {
+            height: 35px;
+        }
+    }
+
+    .slogan-box {
+
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        .heading-primary {
+
+            color: white;
+            text-transform: uppercase;
+            backface-visibility: hidden;
+    
+            .main {
+                display: block;
+                font-size: 60px;
+                font-weight: $font-wheight;
+                letter-spacing: 35px;
+                animation: moveInLeft 1s ease-out;
+            }
+    
+            .sub {
+                padding-left: 3px;
+                display: block;
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: 17.3px;
+                animation: moveInRight 1s ease-out;
+            }
+        }
+
+        // Override link style
+
+        .btn {
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+            }
+
+            &:active {
+                transform: translateY(-1px);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            }
+
+            &:link,
+            &:visited {
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 15px 40px;
+                display: inline-block;
+                border-radius: 100px;
+                transition: all .2s;
+            }
+        }
+
+        .btn-white {
+            background-color: white;
+            color: $primary;
+        }
+    }
+
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
